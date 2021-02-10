@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+    <string name="app_name">King3</string>
+    <string name="admob_app_id">ca-app-pub-7845806301928575~6735571189</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-7845806301928575/5230917827</string>
+    <string name="ad_view_unit_id">ca-app-pub-7845806301928575/2517425895</string>
+</resources>

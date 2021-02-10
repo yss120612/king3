@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "478273268981",
+    "project_id": "king3-f9817",
+    "storage_bucket": "king3-f9817.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:478273268981:android:2651d662db444de89629bc",
+        "android_client_info": {
+          "package_name": "com.yss1.king3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "478273268981-t9gk34mr8uml2lb61uggg43pl9f98eks.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKAigDFnpFFUgcnSamrlg2MgsqeUQxYl8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "478273268981-t9gk34mr8uml2lb61uggg43pl9f98eks.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

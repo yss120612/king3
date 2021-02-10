@@ -1,0 +1,64 @@
+
+buildscript {
+    repositories {
+
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath 'com.google.gms:google-services:4.3.5'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        flatDir {
+            dirs '../../lib_jm/lib_jm/build/libs'
+            dirs '../../Lib_7/lib7/build/outputs/aar'
+        }
+    }
+}
+
+
+def jme3 = [v:'3.3.2-stable', g:'org.jmonkeyengine']
+def jme3_android = [v:'3.3.0-alpha2', g:'org.jmonkeyengine']
+
+project(":core") {
+    apply plugin: "java"
+    dependencies {
+        implementation "${jme3.g}:jme3-core:${jme3.v}"
+        implementation "${jme3.g}:jme3-jogg:${jme3.v}"
+        implementation(name: 'lib_jm', ext: 'jar')
+    }
+}
+
+project(":desktop") {
+    apply plugin: "java"
+    dependencies {
+        implementation project(":core")
+        implementation(name: 'lib_jm', ext: 'jar')
+        implementation "${jme3.g}:jme3-desktop:${jme3.v}"
+        implementation "${jme3.g}:jme3-lwjgl:${jme3.v}"
+    }
+}
+
+project(":app") {
+    apply plugin: "android"
+    dependencies {
+        implementation project(":core")
+        implementation(name: 'lib_jm', ext: 'jar')
+        implementation(name: 'lib7-release', ext: 'aar')
+        implementation "${jme3_android.g}:jme3-android-native:${jme3_android.v}"
+    }
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
