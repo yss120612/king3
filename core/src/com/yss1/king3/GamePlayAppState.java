@@ -1047,7 +1047,8 @@ implements
                 //showLocalLeaderBoard();
                 break;
             case "pubtn_menu04":
-                ap.showAndroidMessage("Banner visible","Banner visible="+ap.isBannerVisible());
+                //ap.showAndroidMessage("Banner visible","Banner visible="+ap.isBannerVisible());
+                ap.showAndroidInfo("user");
                 break;
             case "pubtn_menu05":
                 ap.backPressed();

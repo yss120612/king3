@@ -5,9 +5,9 @@ plugins {
 
 android {
     signingConfigs {
-        config {
-            storeFile file('C:/gamedev/keys/ysskeys2.keystore')
-            keyAlias 'key1'
+        release {
+            storeFile file('D:\\gd1\\keys\\ysskeys3.keystore')
+            keyAlias 'ysskey1'
             storePassword 'ysuiop'
             keyPassword 'Gp25SLqB'
         }
