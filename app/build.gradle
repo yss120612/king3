@@ -6,7 +6,7 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file('D:\\gd1\\keys\\ysskeys3.keystore')
+            storeFile file('D:\\gd1\\keys\\ysskeys.keystore')
             keyAlias 'ysskey1'
             storePassword 'ysuiop'
             keyPassword 'Gp25SLqB'
@@ -30,6 +30,7 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
