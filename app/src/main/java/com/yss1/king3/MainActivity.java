@@ -162,10 +162,9 @@ public class MainActivity extends Activity {
             super.setBannersId();
 
             //set id for mAdView and m InterstitialAD
-            mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
-            if (mAdView!=null) {
-                mAdView.setAdUnitId(getString(R.string.ad_view_unit_id));
-            }
+            mInterstitialAdID=getString(R.string.interstitial_ad_unit_id);
+            mAdViewID=getString(R.string.ad_view_unit_id);
+            mClientID="544332688717-v1et00gmva5kbnn24p926rqkl358pnmf.apps.googleusercontent.com";
         }
 
         @Override
