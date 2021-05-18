@@ -1034,8 +1034,13 @@ implements
                 //ap.showAndroidMessage("diagnostics",writeDiag());
                 break;
             case "pubtn_menu02":
-                ap.showAndroidMessage("diagnostics",writeDiag());
+                //ap.showAndroidMessage("diagnostics",writeDiag());
                 //ap.rate("king2");
+                if (ap.isSignedIn()){
+                    ap.signOut(true);
+                }else {
+                    ap.signIn();
+                }
                 break;
             case "pubtn_menu03":
                 //ap.loadAd();

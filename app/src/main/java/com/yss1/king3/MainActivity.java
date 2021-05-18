@@ -164,7 +164,7 @@ public class MainActivity extends Activity {
             //set id for mAdView and m InterstitialAD
             mInterstitialAdID=getString(R.string.interstitial_ad_unit_id);
             mAdViewID=getString(R.string.ad_view_unit_id);
-            mClientID="544332688717-v1et00gmva5kbnn24p926rqkl358pnmf.apps.googleusercontent.com";
+            mClientID="478273268981-t9gk34mr8uml2lb61uggg43pl9f98eks.apps.googleusercontent.com";
         }
 
         @Override
