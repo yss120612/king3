@@ -165,6 +165,7 @@ public class MainActivity extends Activity {
             mInterstitialAdID=getString(R.string.interstitial_ad_unit_id);
             mAdViewID=getString(R.string.ad_view_unit_id);
             mClientID="478273268981-t9gk34mr8uml2lb61uggg43pl9f98eks.apps.googleusercontent.com";
+            mURLdb="https://king3-f9817-default-rtdb.europe-west1.firebasedatabase.app/";
         }
 
         @Override
