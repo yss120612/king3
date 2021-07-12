@@ -6,7 +6,8 @@ plugins {
 android {
     signingConfigs {
         release {
-            storeFile file('D:\\gd1\\keys\\ysskeys.keystore')
+//            storeFile file('D:\\gd1\\keys\\ysskeys.keystore')
+            storeFile file('c:\\gamedev\\keys\\ysskeys1.keystore')
             keyAlias 'ysskey1'
             storePassword 'ysuiop'
             keyPassword 'Gp25SLqB'
@@ -42,16 +43,16 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.appcompat:appcompat:1.3.0'
+    implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     implementation 'com.android.support:multidex:1.0.3'
 
-    implementation 'com.google.android.gms:play-services-ads:20.1.0'
+    implementation 'com.google.android.gms:play-services-ads:20.2.0'
     implementation platform('com.google.firebase:firebase-bom:28.0.1')
     implementation 'com.google.firebase:firebase-analytics'
 

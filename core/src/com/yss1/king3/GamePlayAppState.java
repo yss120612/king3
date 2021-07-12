@@ -1037,7 +1037,7 @@ implements
                 //ap.showAndroidMessage("diagnostics",writeDiag());
                 //ap.rate("king2");
                 if (ap.isSignedIn()){
-                    ap.signOut(true);
+                   ap.signOut(true);
                 }else {
                     ap.signIn();
                 }
