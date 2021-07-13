@@ -4,6 +4,8 @@
  */
 package com.yss1.king3;
 
+import com.jme3.anim.AnimComposer;
+import com.jme3.anim.tween.action.Action;
 import com.jme3.animation.AnimChannel;
 import com.jme3.animation.AnimControl;
 import com.jme3.animation.AnimEventListener;
@@ -18,6 +20,7 @@ import com.jme3.math.Transform;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
 import com.yss1.king3.GameLogic.GAME_KIND;
+import com.yss1.lib_jm.AnimClipListener;
 import com.yss1.lib_jm.ButtonListener;
 import com.yss1.lib_jm.Card;
 import com.yss1.lib_jm.CardSetBase;
@@ -54,11 +57,44 @@ import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.SERVER_WAIT;
  */
 public class GamePlayAppState extends AbstractAppState 
 implements 
-        ButtonListener, 
-        AnimEventListener , 
+        ButtonListener,
+        AnimClipListener ,
         IPUowner{
 
-   
+
+    @Override
+    public void onAnimCycleDone(Action action, AnimComposer animComposer, String s) {
+        boolean waitMove = false;
+//        channel.setAnim("Idle");
+//        channel.setLoopMode(LoopMode.DontLoop);
+        boolean pover;
+        if (s.contains("ClearDT")) {
+
+            if (++clearCounter == 4) {
+                clearCounter = 0;
+                cardInFly = null;
+                pover=checkPartyOver();
+                processClearTrick(pover);
+            }
+            return;
+        }
+
+        if (s.contains("Fly")) {
+            ap.SOUND.playSound("Хлоп");
+            if (cardInFly!=null && Sett.showSparks)
+            {
+                int si=LOGIC.isSignificant(cardInFly);
+                if (si!=0) ap.flash(si>0?ColorRGBA.Red:ColorRGBA.Blue,cardInFly.getGe().getLocalTranslation());
+            }
+            cardInFly = null;
+            waitMove=true;
+        }
+
+        if (waitMove) {
+            move();
+        }
+    }
+
     public enum GameState {
         INGAME,INGAME_TAKEWAIT, PARTYOVER, GAMEOVER, ASKGAMEOVER
     };
@@ -802,44 +838,44 @@ implements
         return stock.getBackground();
     }
 
-    @Override
-    public void onAnimCycleDone(AnimControl control, AnimChannel channel, String animName) {
-        
-        boolean waitMove = false;
-        channel.setAnim("Idle");
-        channel.setLoopMode(LoopMode.DontLoop);
-        boolean pover;
-        if (animName.equals("ClearDT")) {
-            
-            if (++clearCounter == 4) {
-                clearCounter = 0;
-                cardInFly = null;
-                pover=checkPartyOver();
-                processClearTrick(pover);
-            }
-            return;
-        }
-        
-        if (animName.equals("Fly")) {
-          ap.SOUND.playSound("Хлоп");
-          if (cardInFly!=null && Sett.showSparks)  
-          {
-           int si=LOGIC.isSignificant(cardInFly);   
-           if (si!=0) ap.flash(si>0?ColorRGBA.Red:ColorRGBA.Blue,cardInFly.getGe().getLocalTranslation());
-          }
-          cardInFly = null;
-          waitMove=true;
-        }
-        
-        if (waitMove) {
-            move();
-        }
-    }
+//    @Override
+//    public void onAnimCycleDone(AnimControl control, AnimChannel channel, String animName) {
+//
+//        boolean waitMove = false;
+//        channel.setAnim("Idle");
+//        channel.setLoopMode(LoopMode.DontLoop);
+//        boolean pover;
+//        if (animName.equals("ClearDT")) {
+//
+//            if (++clearCounter == 4) {
+//                clearCounter = 0;
+//                cardInFly = null;
+//                pover=checkPartyOver();
+//                processClearTrick(pover);
+//            }
+//            return;
+//        }
+//
+//        if (animName.equals("Fly")) {
+//          ap.SOUND.playSound("Хлоп");
+//          if (cardInFly!=null && Sett.showSparks)
+//          {
+//           int si=LOGIC.isSignificant(cardInFly);
+//           if (si!=0) ap.flash(si>0?ColorRGBA.Red:ColorRGBA.Blue,cardInFly.getGe().getLocalTranslation());
+//          }
+//          cardInFly = null;
+//          waitMove=true;
+//        }
+//
+//        if (waitMove) {
+//            move();
+//        }
+//    }
 
-    @Override
-    public void onAnimChange(AnimControl control, AnimChannel channel, String animName) {
-        
-    }
+//    @Override
+//    public void onAnimChange(AnimControl control, AnimChannel channel, String animName) {
+//
+//    }
 
     public void showNames() {
           //ap.showAndroidMessage(ap.USERS.getI().getName(),ap.USERS.getUser('D').getName());
@@ -1375,7 +1411,7 @@ implements
     }
     
     @Override
-    public AnimEventListener getAEL() {
+    public AnimClipListener getAnimClipListener () {
         return this;
     }
     
