@@ -4,6 +4,9 @@
  */
 package com.yss1.king3;
 
+import com.jme3.anim.AnimComposer;
+import com.jme3.anim.tween.action.Action;
+import com.yss1.lib_jm.AnimClipListener;
 import com.yss1.lib_jm.ButtonListener;
 import com.jme3.animation.AnimChannel;
 import com.jme3.animation.AnimControl;
@@ -26,7 +29,7 @@ import com.yss1.lib_jm.Wnd;
  * @author ys
  */
 public class OptionAppState extends AbstractAppState implements  
-        AnimEventListener, 
+        AnimClipListener,
         ButtonListener, 
         IPUowner,
         IExecutor
@@ -240,16 +243,14 @@ public OptionAppState(Main a) {
     }
 
 @Override
-    public void onAnimCycleDone(AnimControl control, AnimChannel channel, String animName) {
-        channel.setAnim("Idle");
-        channel.setLoopMode(LoopMode.DontLoop);
+    public void onAnimCycleDone(Action action, AnimComposer animComposer, String animName) {
+        //channel.setAnim("Idle");
+        //channel.setLoopMode(LoopMode.DontLoop);
+        animComposer.reset();
         Tools.waiters.checkActions(this);
     }
 
-@Override
-    public void onAnimChange(AnimControl control, AnimChannel channel, String animName) {
-    }
-    
+
 @Override
     public void popUpClosing(Wnd W,String result)
     {//нажата кнопка
@@ -275,7 +276,7 @@ public OptionAppState(Main a) {
     }
 
     @Override
-    public AnimEventListener getAEL() {
+    public AnimClipListener getAnimClipListener() {
         return this;
     }
     

@@ -4,6 +4,9 @@
  */
 package com.yss1.king3;
 
+import com.jme3.anim.AnimComposer;
+import com.jme3.anim.tween.action.Action;
+import com.yss1.lib_jm.AnimClipListener;
 import com.yss1.lib_jm.ButtonListener;
 import com.jme3.animation.AnimChannel;
 import com.jme3.animation.AnimControl;
@@ -27,7 +30,7 @@ import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.*;
  * @author ys
  */
 public class MainMenu extends AbstractAppState implements 
-        AnimEventListener, 
+        AnimClipListener,
         ButtonListener, 
         IPUowner,
         IExecutor
@@ -203,10 +206,11 @@ public int getCurrent_section() {
     }
     
     @Override
-    public void onAnimCycleDone(AnimControl control, AnimChannel channel, String animName) {
+    public void onAnimCycleDone(Action action, AnimComposer animComposer, String animName){
         
-        channel.setAnim("Idle");
-        channel.setLoopMode(LoopMode.DontLoop);
+//        channel.setAnim("Idle");
+//        channel.setLoopMode(LoopMode.DontLoop);
+        animComposer.reset();
         Tools.waiters.checkActions(this);
         if (animName.contains("flyOut"))
         {
@@ -216,9 +220,7 @@ public int getCurrent_section() {
         }
     }
 
-    @Override
-    public void onAnimChange(AnimControl control, AnimChannel channel, String animName) {
-    }
+
     
     @Override
     public void popUpClosing(Wnd W,String res) {
@@ -258,7 +260,7 @@ public int getCurrent_section() {
     }
     
     @Override
-    public AnimEventListener getAEL() {
+    public AnimClipListener getAnimClipListener(){
         return this;
     }
 

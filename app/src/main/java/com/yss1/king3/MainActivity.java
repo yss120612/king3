@@ -15,11 +15,6 @@ import com.yss1.lib7.JmeFragmentBase;
 import java.util.logging.Level;
 import java.util.logging.LogManager;
 
-//import com.google.android.gms.analytics.GoogleAnalytics;
-//import com.google.android.gms.analytics.HitBuilders;
-//import com.google.android.gms.common.api.GoogleApiClient;
-//import com.google.android.gms.games.Games;
-//import com.google.android.gms.plus.Plus;
 
 
 public class MainActivity extends Activity {

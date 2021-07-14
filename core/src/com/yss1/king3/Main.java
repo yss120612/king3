@@ -7,6 +7,7 @@ import com.jme3.light.DirectionalLight;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.FastMath;
 import com.jme3.math.Vector3f;
+import com.yss1.lib_jm.AnimClipListener;
 import com.yss1.lib_jm.AppBase;
 import com.yss1.lib_jm.Button3d;
 import com.yss1.lib_jm.ButtonListener;
@@ -105,15 +106,7 @@ public class Main extends AppBase {
         UIM=new UImanager(this); 
         
         QNET=new Qnet(this);
-//        sun = new DirectionalLight();
-//        sun.setColor(ColorRGBA.Blue);
-//        sun.setDirection(new Vector3f(3f,3f,-2f));
-//        rootNode.addLight(sun);
-        
-//        AmbientLight ambient = new AmbientLight();
-//        ambient.setColor(ColorRGBA.Green);
-//        rootNode.addLight(ambient);
-        
+
         OPTION.setEnabled(false);
         GAME.setEnabled(false);
         rootNode.attachChild(DESK.getMyNode());
@@ -150,10 +143,15 @@ public class Main extends AppBase {
             case "OPTION":
                 return OPTION;
             case "GAME":
-                sendEventGA("GEME_PRESSED");
+                //sendEventGA("GEME_PRESSED");
                 return GAME;
         }
         return null;
+    }
+
+    @Override
+    public AnimClipListener getGameAnimClipListener() {
+        return GAME;
     }
 
     @Override
@@ -173,17 +171,17 @@ public class Main extends AppBase {
         return (Ress)RES;
     }
 
-    @Override
-    public AnimEventListener getGameAEL() {
-        return GAME;
-    }
+//    @Override
+//    public AnimClipListener getAnimClipListener(){
+//        return GAME;
+//    }
      
     @Override
     protected void initFlash() {
         flash = new ParticleEmitter("Flash", ParticleMesh.Type.Triangle, 30);
         flash.setMaterial(RES.getMaterial("Spark"));
-        flash.setImagesX(10);
-        flash.setImagesY(10); // 3x3 texture animation
+        flash.setImagesX(1);
+        flash.setImagesY(1); // 3x3 texture animation
         flash.setRotateSpeed(4);
        // flash.setQueueBucket(RenderQueue.Bucket.Transparent);
         flash.getParticleInfluencer().setInitialVelocity(new Vector3f(0, 0, 4));
