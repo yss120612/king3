@@ -153,7 +153,7 @@ public class MainActivity extends Activity {
     }
 
         @Override
-        public void setBannersId(){
+        public void setIds(){
             super.setBannersId();
 
             //set id for mAdView and m InterstitialAD
