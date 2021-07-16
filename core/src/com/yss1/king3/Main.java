@@ -270,37 +270,37 @@ public class Main extends AppBase {
         if (X < borders[0]) {
             if (conn) {
 
-                disconnect();
+                //disconnect();
                 InfoPlane ip = getUIM().getPlane('P');
                 if (ip != null) {
                     ip.applyTexture(1);
                 }
             } else {
                 runOnConnect = "";
-                connect();
+                //connect();
             }
             return;
         }
         if (X < borders[1]) {
             if (!conn) {
-                runOnConnect = "Achivements";
-                connect();
+                //runOnConnect = "Achivements";
+                //connect();
             } else {
-                androidIF.gp_ShowAchivements();
+                //androidIF.gp_ShowAchivements();
             }
         } else if (X < borders[2]) {
             if (!conn) {
-                runOnConnect = LB;
-                connect();
+                //runOnConnect = LB;
+                //connect();
             } else {
-                androidIF.gp_ShowLeaderboard(LB);
+               // androidIF.gp_ShowLeaderboard(LB);
             }
         } else {
             if (!conn) {
-                runOnConnect = "Multiplayer";
-                connect();
+                //runOnConnect = "Multiplayer";
+               // connect();
             } else {
-                androidIF.mp_InvitationInbox();
+               // androidIF.mp_InvitationInbox();
             }
 
         }

@@ -154,16 +154,16 @@ public int getCurrent_section() {
             ap.UIM.showPopup('A',String.format(Tools.getText(700),slideNo+1,totalSlides),Tools.getText(710+slideNo),Tools.getText(701),Tools.getText(702),Tools.getText(703), Wnd.PU_TYPE.NEXT_ONLY_CLS,Sett.helpSize);
             ap.UIM.detachMyButtons(this);            
             attachGooglePlay(false);
-        }else if (name.contains("btn_multiplayer")) {
-            switchSection(2);
-        }else if (name.contains("btn_home")) {
-            switchSection(1);
-        }else if (name.contains("btn_quick")) {
-            ap.quickStart();
-        }else if (name.contains("btn_select")) {
-            ap.selectOpponents(true);
-        }else if (name.contains("btn_invitations")) {
-            ap.invitationInbox();
+//        }else if (name.contains("btn_multiplayer")) {
+//            switchSection(2);
+//        }else if (name.contains("btn_home")) {
+//            switchSection(1);
+//        }else if (name.contains("btn_quick")) {
+//            ap.quickStart();
+//        }else if (name.contains("btn_select")) {
+//            ap.selectOpponents(true);
+//        }else if (name.contains("btn_invitations")) {
+//            ap.invitationInbox();
         }
          else {
             quit_button_pressed=true;

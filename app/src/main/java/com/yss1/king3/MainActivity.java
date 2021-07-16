@@ -59,8 +59,8 @@ public class MainActivity extends Activity {
             super();
             appClass = "com.yss1.king3.Main";
             splashPicID = R.drawable.splash;
-            GP_ACTIVATE=true;
-            GP_MULTIPLAYER=true;
+            //GP_ACTIVATE=true;
+            //GP_MULTIPLAYER=true;
             MIN_PLAYERS=3;
             AD_BANNER=true;
         }
@@ -154,7 +154,7 @@ public class MainActivity extends Activity {
 
         @Override
         public void setIds(){
-            super.setBannersId();
+            super.setIds();
 
             //set id for mAdView and m InterstitialAD
             mInterstitialAdID=getString(R.string.interstitial_ad_unit_id);

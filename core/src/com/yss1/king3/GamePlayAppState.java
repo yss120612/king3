@@ -683,7 +683,7 @@ implements
         updateTricks();
         boolean GameOVER=LOGIC.gameIsOver();
         
-        checkAchivements(GameOVER);
+        //checkAchivements(GameOVER);
         if (!GameOVER) {//party is over
             gameState = GameState.PARTYOVER;
             ap.UIM.showPopup('A',Tools.getText(5), String.format(Tools.getText(6), Tools.getText(479+LOGIC.Next().ordinal())),Tools.getText(1),Tools.getText(3),"", PU_TYPE.YES_ONLY);
@@ -715,29 +715,6 @@ implements
         return true;
     }
 
-    void checkAchivements(boolean GOver) {
-       boolean HALF=LOGIC.Next()==GAME_KIND.NO_ALL;
-       int SC= LOGIC.getMyPoints();
-       if (HALF) LOGIC.setHalfMyPoint(SC);
-       if (!ap.isSignedIn()) return;
-       boolean IWin;
-
-       if (HALF) 
-       {
-            if (SC==0) ap.unlockAchivment("CgkIz7XS19MJEAIQBA");
-       }
-       
-       if (GOver)
-       {
-       IWin=LOGIC.getWinners().contains('D');
-       ap.submitScore("CgkIz7XS19MJEAIQAQ",SC);
-       if (SC>=75) ap.unlockAchivment("CgkIz7XS19MJEAIQAg");
-       if (SC>=100) ap.unlockAchivment("CgkIz7XS19MJEAIQAw");
-       if (SC>=192) ap.unlockAchivment("CgkIz7XS19MJEAIQBw");
-       if (SC-LOGIC.getHalfMyPoint()>=192) ap.unlockAchivment("CgkIz7XS19MJEAIQBQ");
-       if (IWin) ap.incrementAchivment("CgkIz7XS19MJEAIQCA", 1);
-       }
-    }
 
     private char next(char old)  {
         char result='D';
