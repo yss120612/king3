@@ -6,10 +6,6 @@ package com.yss1.king3;
 
 import com.jme3.anim.AnimComposer;
 import com.jme3.anim.tween.action.Action;
-import com.jme3.animation.AnimChannel;
-import com.jme3.animation.AnimControl;
-import com.jme3.animation.AnimEventListener;
-import com.jme3.animation.LoopMode;
 import com.jme3.app.Application;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
@@ -20,7 +16,6 @@ import com.jme3.math.Transform;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Node;
 import com.yss1.king3.GameLogic.GAME_KIND;
-import com.yss1.lib_jm.ActionClipYss;
 import com.yss1.lib_jm.AnimClipListener;
 import com.yss1.lib_jm.ButtonListener;
 import com.yss1.lib_jm.Card;
@@ -68,7 +63,7 @@ implements
         boolean waitMove = false;
 //        channel.setAnim("Idle");
 //        channel.setLoopMode(LoopMode.DontLoop);
-        if (!((ActionClipYss)action).isLoop()) animComposer.reset();
+
         boolean pover;
         if (s.contains("ClearDT")) {
 
