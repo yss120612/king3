@@ -3,7 +3,7 @@
 
     <fragment
         android:id="@+id/jmeFragment"
-        android:name="com.yss1.king3.MainActivity$JmeFragment"
+        android:name="com.yss1.king3.JmeFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>

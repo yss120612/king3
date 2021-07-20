@@ -1066,7 +1066,9 @@ implements
                 ap.showAndroidInfo("user");
                 break;
             case "pubtn_menu05":
-                ap.backPressed();
+                //ap.backPressed();
+                //ap.writeDB("kabs","123321");
+                ap.read_db("field");
                 break;
         }
      }
