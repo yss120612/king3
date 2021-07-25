@@ -6,23 +6,20 @@ package com.yss1.king3;
 
 import com.jme3.anim.AnimComposer;
 import com.jme3.anim.tween.action.Action;
-import com.yss1.lib_jm.AnimClipListener;
-import com.yss1.lib_jm.ButtonListener;
-import com.jme3.animation.AnimChannel;
-import com.jme3.animation.AnimControl;
-import com.jme3.animation.AnimEventListener;
-import com.jme3.animation.LoopMode;
 import com.jme3.app.Application;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
 import com.jme3.math.ColorRGBA;
 import com.jme3.scene.Node;
+import com.yss1.lib_jm.AnimClipListener;
+import com.yss1.lib_jm.ButtonListener;
 import com.yss1.lib_jm.IExecutor;
 import com.yss1.lib_jm.IPUowner;
 import com.yss1.lib_jm.InfoPlane;
 import com.yss1.lib_jm.WaiterElement;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON1;
 import com.yss1.lib_jm.Wnd;
+
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON1;
 
 /**
  *
@@ -244,9 +241,6 @@ public OptionAppState(Main a) {
 
 @Override
     public void onAnimCycleDone(Action action, AnimComposer animComposer, String animName) {
-        //channel.setAnim("Idle");
-        //channel.setLoopMode(LoopMode.DontLoop);
-        animComposer.reset();
         Tools.waiters.checkActions(this);
     }
 

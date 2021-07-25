@@ -6,25 +6,24 @@ package com.yss1.king3;
 
 import com.jme3.anim.AnimComposer;
 import com.jme3.anim.tween.action.Action;
-import com.yss1.lib_jm.AnimClipListener;
-import com.yss1.lib_jm.ButtonListener;
-import com.jme3.animation.AnimChannel;
-import com.jme3.animation.AnimControl;
-import com.jme3.animation.AnimEventListener;
-import com.jme3.animation.LoopMode;
 import com.jme3.app.Application;
 import com.jme3.app.state.AbstractAppState;
 import com.jme3.app.state.AppStateManager;
 import com.jme3.font.BitmapText;
 import com.jme3.scene.Node;
+import com.yss1.lib_jm.AnimClipListener;
+import com.yss1.lib_jm.ButtonListener;
 import com.yss1.lib_jm.IExecutor;
 import com.yss1.lib_jm.IPUowner;
 import com.yss1.lib_jm.InfoPlane;
 import com.yss1.lib_jm.WaiterElement;
 import com.yss1.lib_jm.Wnd;
+
 import java.util.ArrayList;
 import java.util.List;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.*;
+
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON1;
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON2;
 /**
  *
  * @author ys
@@ -137,15 +136,7 @@ public int getCurrent_section() {
             Tools.waiters.initWaiter(this,CLICK_BUTTON1,"Button pressed");
         } else if (name.contains("btn_options")) {
             Tools.waiters.initWaiter(this,CLICK_BUTTON2,"Button pressed");
-            //JmeSystem.showErrorDialog(JmeSystem.getFullName());
-//                SoftTextDialogInputListener dt = new SoftTextDialogInputListener() {
-//        @Override
-//        public void onSoftText(int action, String text) {
-//            System.out.println("data="+text);
-//        }
-//    };
-//    JmeSystem.getSoftTextDialogInput().requestDialog(SoftTextDialogInput.TEXT_ENTRY_DIALOG, "title", "qq", dt);
-//
+
 
         }
         else if (name.contains("btn_help"))
@@ -207,10 +198,6 @@ public int getCurrent_section() {
     
     @Override
     public void onAnimCycleDone(Action action, AnimComposer animComposer, String animName){
-        
-//        channel.setAnim("Idle");
-//        channel.setLoopMode(LoopMode.DontLoop);
-        animComposer.reset();
         Tools.waiters.checkActions(this);
         if (animName.contains("flyOut"))
         {
