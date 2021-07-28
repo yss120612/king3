@@ -6,8 +6,8 @@ plugins {
 android {
     signingConfigs {
         release {
-//            storeFile file('D:\\gd1\\keys\\ysskeys.keystore')
-            storeFile file('c:\\gamedev\\keys\\ysskeys1.keystore')
+            storeFile file('D:\\gd1\\keys\\ysskeys.keystore')
+//            storeFile file('c:\\gamedev\\keys\\ysskeys1.keystore')
             keyAlias 'ysskey1'
             storePassword 'ysuiop'
             keyPassword 'Gp25SLqB'
@@ -15,7 +15,7 @@ android {
 
     }
     compileSdkVersion 30
-    buildToolsVersion "30.0.2"
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "com.yss1.king3"

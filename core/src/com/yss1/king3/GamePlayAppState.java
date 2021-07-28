@@ -1068,7 +1068,8 @@ implements
             case "pubtn_menu05":
                 //ap.backPressed();
                 //ap.writeDB("kabs","123321");
-                ap.read_db("field");
+                //ap.writeDB("kab001", "rasklad");
+                ap.subscribe_db("kab001");
                 break;
         }
      }
