@@ -1212,8 +1212,8 @@ implements
         if (NP == null) {
             return;
         }
-        String contragent=NP.getContragent();
-        UserBase from=ap.USERS.getUser(contragent);
+        //String contragent=NP.getContragent();
+        UserBase from=ap.USERS.getUser(NP.get_sender().getLetter());
         if (from==null)
         {
             ap.showAndroidMessage("Error", "Network message author not found");
@@ -1227,7 +1227,7 @@ implements
         char Wh;
         int L;
        //ap.writeAndroidLog(NP.getPacketType()+" "+NP.getContent());
-        switch (NP.getPacketType()) {
+        switch (NP.getContentType()) {
             
             case RASKLAD://приходит расклад в начале партии
                 setCardsFromNet(S);
@@ -1308,7 +1308,7 @@ implements
                 //если ч младший активный информирую о ситуации воскресшего
                 if (ap.USERS.isImLowActive())
                 {
-                 ap.QNET.packetOneSend(INFO_ALIVE, ap.USERS.getNAusers(), from.getUid());
+                 //ap.QNET.packetOneSend(INFO_ALIVE, ap.USERS.getNAusers(), from.getUid());
                 }
                 break;            
             case INFO_ALIVE://receive information about activity
