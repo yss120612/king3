@@ -1063,7 +1063,13 @@ implements
                 break;
             case "pubtn_menu04":
                 //ap.showAndroidMessage("Banner visible","Banner visible="+ap.isBannerVisible());
-                ap.showAndroidInfo("user");
+                NetPacket np= Tools.vPool.getNPacket();
+                np.setContent("BLABLA");
+                np.setContentType(INFO_ALIVE);
+                np.set_sender(NetPacket.AddressType.DOWN_USER);
+                np.set_send_to(NetPacket.AddressType.ALLNOTME);
+                ap.write_db("kob001",np.prepare2sendPacket());
+                //ap.showAndroidInfo("user");
                 break;
             case "pubtn_menu05":
                 //ap.backPressed();
