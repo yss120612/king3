@@ -4,6 +4,18 @@
  */
 package com.yss1.king3;
 
+import static com.yss1.lib_jm.NetPacket.PType.DESK_CLEARED;
+import static com.yss1.lib_jm.NetPacket.PType.GAME_FINISHED;
+import static com.yss1.lib_jm.NetPacket.PType.IM_LEAVE;
+import static com.yss1.lib_jm.NetPacket.PType.MOVE_MAKE;
+import static com.yss1.lib_jm.NetPacket.PType.MOVE_NEED;
+import static com.yss1.lib_jm.NetPacket.PType.NEXT_GAME;
+import static com.yss1.lib_jm.NetPacket.PType.NEXT_PARTY;
+import static com.yss1.lib_jm.NetPacket.PType.PARTY_FINISHED;
+import static com.yss1.lib_jm.NetPacket.PType.RASKLAD;
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.BANNER_VISIBLE;
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.SERVER_WAIT;
+
 import com.jme3.anim.AnimComposer;
 import com.jme3.anim.tween.action.Action;
 import com.jme3.app.Application;
@@ -33,19 +45,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import static com.yss1.lib_jm.NetPacket.PType.DESK_CLEARED;
-import static com.yss1.lib_jm.NetPacket.PType.GAME_FINISHED;
-import static com.yss1.lib_jm.NetPacket.PType.IM_LEAVE;
-import static com.yss1.lib_jm.NetPacket.PType.INFO_ALIVE;
-import static com.yss1.lib_jm.NetPacket.PType.MOVE_MAKE;
-import static com.yss1.lib_jm.NetPacket.PType.MOVE_NEED;
-import static com.yss1.lib_jm.NetPacket.PType.NEXT_GAME;
-import static com.yss1.lib_jm.NetPacket.PType.NEXT_PARTY;
-import static com.yss1.lib_jm.NetPacket.PType.PARTY_FINISHED;
-import static com.yss1.lib_jm.NetPacket.PType.RASKLAD;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.BANNER_VISIBLE;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.SERVER_WAIT;
 
 /**
  *
@@ -1057,25 +1056,30 @@ implements
                 ap.showBanner(!ap.isBannerVisible());
                 Tools.waiters.initWaiter(ap, BANNER_VISIBLE, "banner visible", 2);
 
-
+                NetPacket np= Tools.vPool.getNPacket();
+                np.setContent("BLABLABLA");
+                //np.setContentType(INFO_ALIVE);
+                np.set_sender(NetPacket.AddressType.DOWN_USER);
+                np.set_send_to(NetPacket.AddressType.ALLNOTME);
+                ap.write_db("kob001",np.prepare2sendPacket());
                 //prepareBanner(ap.isBannerVisible());
                 //showLocalLeaderBoard();
                 break;
             case "pubtn_menu04":
                 //ap.showAndroidMessage("Banner visible","Banner visible="+ap.isBannerVisible());
-                NetPacket np= Tools.vPool.getNPacket();
-                np.setContent("BLABLA");
-                np.setContentType(INFO_ALIVE);
-                np.set_sender(NetPacket.AddressType.DOWN_USER);
-                np.set_send_to(NetPacket.AddressType.ALLNOTME);
-                ap.write_db("kob001",np.prepare2sendPacket());
+                //NetPacket np= Tools.vPool.getNPacket();
+                //np.setContent("BLABLA");
+                //np.setContentType(INFO_ALIVE);
+                //np.set_sender(NetPacket.AddressType.DOWN_USER);
+                //np.set_send_to(NetPacket.AddressType.ALLNOTME);
+                ap.read_db("kob001");
                 //ap.showAndroidInfo("user");
                 break;
             case "pubtn_menu05":
                 //ap.backPressed();
                 //ap.writeDB("kabs","123321");
                 //ap.writeDB("kab001", "rasklad");
-                ap.subscribe_db("kab001");
+                ap.subscribe_db("kob001");
                 break;
         }
      }
