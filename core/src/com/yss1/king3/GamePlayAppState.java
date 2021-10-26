@@ -1055,13 +1055,13 @@ implements
                 //ap.loadAd();
                 ap.showBanner(!ap.isBannerVisible());
                 Tools.waiters.initWaiter(ap, BANNER_VISIBLE, "banner visible", 2);
-
-                NetPacket np= Tools.vPool.getNPacket();
-                np.setContent("BLABLABLA");
+                ap.read_db("kob002");
+                //NetPacket np= Tools.vPool.getNPacket();
+                //np.setContent("BLABLABLA");
                 //np.setContentType(INFO_ALIVE);
-                np.set_sender(NetPacket.AddressType.DOWN_USER);
-                np.set_send_to(NetPacket.AddressType.ALLNOTME);
-                ap.write_db("kob001",np.prepare2sendPacket());
+                //np.set_sender(NetPacket.AddressType.DOWN_USER);
+                //np.set_send_to(NetPacket.AddressType.ALLNOTME);
+                //ap.write_db("kob001",np.prepare2sendPacket());
                 //prepareBanner(ap.isBannerVisible());
                 //showLocalLeaderBoard();
                 break;

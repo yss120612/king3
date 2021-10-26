@@ -19,9 +19,10 @@ public class ExampleUnitTest {
     @Test
     public void netpacked_isCorrect() {
         NetPacket np= new NetPacket();
-        np.set_send_to(NetPacket.AddressType.ALLNOTME);
+        //np.set_send_to(NetPacket.AddressType.ALLNOTME);
+        np.set_receiver(NetPacket.AddressType.ALLNOTME);
         np.set_sender(NetPacket.AddressType.DOWN_USER);
-        np.setContentType(NetPacket.PType.IM_ALIVE);
+        //np.setContentType(NetPacket.PType.IM_ALIVE);
         np.setContent("HUUU");
         //np.prepare2sendPacket().get("RECPT")
         assertEquals((String)np.prepare2sendPacket().get("RCPT"), "A");
