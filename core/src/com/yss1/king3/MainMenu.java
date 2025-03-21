@@ -4,6 +4,9 @@
  */
 package com.yss1.king3;
 
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON1;
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON2;
+
 import com.jme3.anim.AnimComposer;
 import com.jme3.anim.tween.action.Action;
 import com.jme3.app.Application;
@@ -21,9 +24,6 @@ import com.yss1.lib_jm.Wnd;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON1;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON2;
 /**
  *
  * @author ys
@@ -77,7 +77,7 @@ public int getCurrent_section() {
          
          ap.UIM.attachMyButtons(this);
          setSection();
-         attachGooglePlay(true);
+         //attachGooglePlay(true);
          ap.UIM.initCheckButton("btn_sound",Sett.sound_on);
          ap.UIM.initRadioGroup(Sett.lang==1?"btn_lang_ru":"btn_lang_eng",1);
          ap.getUIM2().setGameButton(ap.GAME.getGameState()==GamePlayAppState.GameState.GAMEOVER);
@@ -125,7 +125,7 @@ public int getCurrent_section() {
     public void cleanup() {
         super.cleanup(); 
         ap.UIM.detachMyButtons(this);
-        attachGooglePlay(false);
+        //attachGooglePlay(false);
         ap.getRootNode().detachChild(menu);
     }
 
@@ -144,7 +144,7 @@ public int getCurrent_section() {
             slideNo=0;
             ap.UIM.showPopup('A',String.format(Tools.getText(700),slideNo+1,totalSlides),Tools.getText(710+slideNo),Tools.getText(701),Tools.getText(702),Tools.getText(703), Wnd.PU_TYPE.NEXT_ONLY_CLS,Sett.helpSize);
             ap.UIM.detachMyButtons(this);            
-            attachGooglePlay(false);
+            //attachGooglePlay(false);
 //        }else if (name.contains("btn_multiplayer")) {
 //            switchSection(2);
 //        }else if (name.contains("btn_home")) {
@@ -211,7 +211,7 @@ public int getCurrent_section() {
     
     @Override
     public void popUpClosing(Wnd W,String res) {
-        
+        // help popup
         if (res.contains("pubtn_left")) {
             slideNo--;
             ap.UIM.showPopup('A',String.format(Tools.getText(700),slideNo+1,totalSlides),Tools.getText(710+slideNo),Tools.getText(701),Tools.getText(702),Tools.getText(703),  slideNo==0?Wnd.PU_TYPE.NEXT_ONLY_CLS:Wnd.PU_TYPE.PREV_NEXT_CLS,Sett.helpSize);
@@ -224,7 +224,7 @@ public int getCurrent_section() {
     @Override
     public void popUpClosed(Wnd W,String s) {
       ap.UIM.attachMyButtons(this);
-      attachGooglePlay(true);
+      //attachGooglePlay(true);
      }
 
     @Override

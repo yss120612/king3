@@ -1,10 +1,10 @@
 package com.yss1.king3;
 
+import static org.junit.Assert.*;
+
 import com.yss1.lib_jm.NetPacket;
 
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Example local unit test, which will execute on the development machine (host).

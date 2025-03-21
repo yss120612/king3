@@ -1,8 +1,9 @@
 {
   "project_info": {
     "project_number": "478273268981",
+    "firebase_url": "https://king3-f9817-default-rtdb.europe-west1.firebasedatabase.app",
     "project_id": "king3-f9817",
-    "storage_bucket": "king3-f9817.appspot.com"
+    "storage_bucket": "king3-f9817.firebasestorage.app"
   },
   "client": [
     {
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "478273268981-t1faudvcqr229g4ej14v5qv6g3t20rqk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.yss1.king3",
+            "certificate_hash": "1cbd4a71367539f4eed84ef9cba1dfd8f77d9f6e"
+          }
+        },
         {
           "client_id": "478273268981-t9gk34mr8uml2lb61uggg43pl9f98eks.apps.googleusercontent.com",
           "client_type": 3
@@ -32,7 +41,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-7845806301928575~6735571189"
     }
   ],
   "configuration_version": "1"

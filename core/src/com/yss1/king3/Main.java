@@ -1,6 +1,11 @@
 package com.yss1.king3;
 
-import com.jme3.animation.AnimEventListener;
+import static com.yss1.king3.GamePlayAppState.GameState;
+import static com.yss1.lib_jm.NetPacket.PType.IM_PAUSED;
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.AD_NEED;
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.SEND_ALIVE;
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.STOP_FLASH;
+
 import com.jme3.effect.ParticleEmitter;
 import com.jme3.effect.ParticleMesh;
 import com.jme3.light.DirectionalLight;
@@ -22,12 +27,6 @@ import com.yss1.lib_jm.Wnd;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import static com.yss1.king3.GamePlayAppState.GameState;
-import static com.yss1.lib_jm.NetPacket.PType.IM_PAUSED;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.AD_NEED;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.SEND_ALIVE;
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.STOP_FLASH;
 /**
  * test
  *

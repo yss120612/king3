@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yss1.king3">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application
         android:allowBackup="true"
@@ -9,9 +10,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.King3"
+        android:extractNativeLibs="true"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".MainActivity"
+        <activity android:name=".JmeActivity"
+            android:exported="true"
             android:screenOrientation="landscape"
 		    android:launchMode="singleTask">
             <intent-filter>
@@ -23,6 +26,10 @@
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_app_id"/>
+        <property
+            android:name="android.adservices.AD_SERVICES_CONFIG"
+            android:resource="@xml/gma_ad_services_config"
+            tools:replace="android:resource" />
 
     </application>
     <uses-permission android:name="android.permission.INTERNET" />

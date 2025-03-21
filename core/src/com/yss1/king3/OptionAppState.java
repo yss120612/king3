@@ -4,6 +4,8 @@
  */
 package com.yss1.king3;
 
+import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON1;
+
 import com.jme3.anim.AnimComposer;
 import com.jme3.anim.tween.action.Action;
 import com.jme3.app.Application;
@@ -18,8 +20,6 @@ import com.yss1.lib_jm.IPUowner;
 import com.yss1.lib_jm.InfoPlane;
 import com.yss1.lib_jm.WaiterElement;
 import com.yss1.lib_jm.Wnd;
-
-import static com.yss1.lib_jm.WaiterElement.WAITERTYPE.CLICK_BUTTON1;
 
 /**
  *

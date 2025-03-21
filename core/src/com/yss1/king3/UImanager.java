@@ -4,6 +4,10 @@
  */
 package com.yss1.king3;
 
+import static com.jme3.font.BitmapFont.Align;
+import static com.yss1.lib_jm.Button3d.BSIZE;
+import static com.yss1.lib_jm.Button3d.BTYPE;
+
 import com.jme3.font.BitmapFont;
 import com.jme3.font.Rectangle;
 import com.jme3.math.ColorRGBA;
@@ -19,10 +23,6 @@ import com.yss1.lib_jm.Wnd;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.jme3.font.BitmapFont.Align;
-import static com.yss1.lib_jm.Button3d.BSIZE;
-import static com.yss1.lib_jm.Button3d.BTYPE;
 
 /**
  *

@@ -3,38 +3,36 @@ buildscript {
     repositories {
 
         google()
-        jcenter()
+        mavenCentral()
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.2.2'
-        classpath 'com.google.gms:google-services:4.3.10'
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        classpath 'com.android.tools.build:gradle:8.5.2'
+        classpath  'com.google.gms:google-services:4.4.2'
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
         flatDir {
-            dirs '../../lib_jm/lib_jm/build/libs'
+             dirs '../../lib_jm/lib_jm/build/libs'
             dirs '../../Lib_7/lib7/build/outputs/aar'
         }
     }
 }
 
-
-//def jme3 = [v:'3.3.2-stable', g:'org.jmonkeyengine']
-//def jme3_android = [v:'3.3.0-alpha2', g:'org.jmonkeyengine']
-def jme3 = [v:'3.5.0-stable', g:'org.jmonkeyengine']
+ext.jmonkeyengineVersion = '3.7.0-stable'
 
 project(":core") {
     apply plugin: "java"
     dependencies {
-        implementation "${jme3.g}:jme3-core:${jme3.v}"
-        implementation "${jme3.g}:jme3-jogg:${jme3.v}"
+        //implementation "${jme3.g}:jme3-core:${jme3.v}"
+        //implementation "${jme3.g}:jme3-jogg:${jme3.v}"
+        implementation files("../app/assets")
+        implementation 'org.jmonkeyengine:jme3-core:'+jmonkeyengineVersion
+        implementation 'org.jmonkeyengine:jme3-jogg:'+jmonkeyengineVersion
         implementation(name: 'lib_jm', ext: 'jar')
     }
 }
@@ -44,8 +42,10 @@ project(":desktop") {
     dependencies {
         implementation project(":core")
         implementation(name: 'lib_jm', ext: 'jar')
-        implementation "${jme3.g}:jme3-desktop:${jme3.v}"
-        implementation "${jme3.g}:jme3-lwjgl:${jme3.v}"
+        implementation "org.jmonkeyengine:jme3-lwjgl3:" + jmonkeyengineVersion
+        implementation 'org.jmonkeyengine:jme3-desktop:'+jmonkeyengineVersion
+
+
     }
 }
 
@@ -55,7 +55,8 @@ project(":app") {
         implementation project(":core")
         implementation(name: 'lib_jm', ext: 'jar')
         implementation(name: 'lib7-release', ext: 'aar')
-        implementation "${jme3.g}:jme3-android-native:${jme3.v}"
+        //implementation 'org.jmonkeyengine:jme3-android:'+jmonkeyengineVersion
+        implementation 'org.jmonkeyengine:jme3-android-native:'+jmonkeyengineVersion
     }
 }
 

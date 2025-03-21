@@ -175,7 +175,7 @@ implements
         loaded=false;//признак - в игру зашли (игровое окно открывалось)
         //Sett.is_net=false;
         whoFirstGame='N';
-        
+
     }
     
      @Override
@@ -960,10 +960,11 @@ implements
     
     public void saveState()
     {
-     
+
          if (!ap.isAndroid() || Sett.is_net) {
             return;
         }
+
         Map<String, Object> HM = new HashMap<>();
         HM.put("LANGUAGE", Sett.lang);
         HM.put("AUTOCLEAR", Sett.autoClear);
@@ -971,11 +972,15 @@ implements
         HM.put("SOUND_ON", Sett.sound_on);
         HM.put("SCREEN_ON", Sett.screen_on);
         HM.put("PLAYER_NAME", Sett.youName);
+
+
+
         HM.put("RULES",RULES.getPacketRules());
         if (!loaded) {
             ap.saveSettingsMap(HM);
             return;
         }
+
 
         HM.put("GAME_KIND", LOGIC.getGameKind().toString());
         HM.put("GAME_STATE", gameState.toString());
@@ -999,6 +1004,7 @@ implements
 
         cardSets.get('T').setWeightToN();
         HM = cardSets.get('B').forSaveCards(cardSets.get('D').forSaveCards(cardSets.get('T').forSaveCards(cardSets.get('U').forSaveCards(cardSets.get('L').forSaveCards(cardSets.get('R').forSaveCards(HM, 'R'), 'L'), 'U'), 'T'), 'D'), 'B');
+
         ap.saveSettingsMap(HM);
     }
 
