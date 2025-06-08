@@ -7,7 +7,7 @@ buildscript {
 
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.5.2'
+        classpath 'com.android.tools.build:gradle:8.10.1'
         classpath  'com.google.gms:google-services:4.4.2'
     }
 }
@@ -23,7 +23,7 @@ allprojects {
     }
 }
 
-ext.jmonkeyengineVersion = '3.7.0-stable'
+ext.jmonkeyengineVersion = '3.8.1-stable'
 
 project(":core") {
     apply plugin: "java"
@@ -61,6 +61,6 @@ project(":app") {
 }
 
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
+//task clean(type: Delete) {
+//    delete rootProject.buildDir
+//}
